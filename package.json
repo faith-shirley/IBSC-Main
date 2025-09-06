@@ -1,0 +1,27 @@
+{
+  "name": "ibsc-2",
+  "version": "1.0.0",
+  "description": "A digital resource store and consultancy platform for IB educators offering previewable and premium educational materials, alongside subscription-based content access.",
+  "main": "index.js",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build",
+    "preview": "vite preview",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.0.0",
+    "@paypal/paypal-server-sdk": "",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "react-google-drive-picker": "^1.1.1",
+    "@paypal/react-paypal-js": "^8.8.3"
+  },
+  "devDependencies": {
+    "vite": "^4.0.0",
+    "@vitejs/plugin-react": "^3.0.0",
+    "autoprefixer": "^10.4.0",
+    "postcss": "^8.4.0",
+    "tailwindcss": "^3.0.0"
+  }
+}

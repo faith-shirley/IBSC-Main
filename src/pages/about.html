@@ -1,0 +1,228 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Us - IB Science Classroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <style>
+        .about-page {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .about-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .about-header h1 {
+            font-size: 2.5rem;
+            color: var(--oxford-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .about-header p {
+            font-size: 1.1rem;
+            color: var(--oxford-blue);
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .about-section {
+            display: flex;
+            align-items: center;
+            gap: 3rem;
+            margin-bottom: 4rem;
+        }
+        
+        .about-section.reverse {
+            flex-direction: row-reverse;
+        }
+        
+        .about-content {
+            flex: 1;
+        }
+        
+        .about-image {
+            flex: 1;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        .about-image img {
+            width: 100%;
+            height: auto;
+            display: block;
+        }
+        
+        .about-content h2 {
+            color: var(--oxford-blue);
+            margin-bottom: 1.5rem;
+        }
+        
+        .about-content p {
+            color: var(--oxford-blue);
+            opacity: 0.8;
+            margin-bottom: 1.5rem;
+            line-height: 1.6;
+        }
+        
+        .team-section {
+            text-align: center;
+            margin: 4rem 0;
+        }
+        
+        .team-section h2 {
+            color: var(--oxford-blue);
+            margin-bottom: 2rem;
+        }
+        
+        .team-grid {
+            display: inline-flex;
+            place-items: center;
+            width: 250px;
+        }
+        
+        .team-member {
+            background-color: var(--snow-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .team-member-image {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            overflow: hidden;
+            margin: 0 auto 1.5rem;
+            border: 3px solid var(--mustard-gold);
+        }
+        
+        .team-member-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        .team-member h3 {
+            color: var(--oxford-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .team-member p.position {
+            color: var(--mustard-gold);
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+        
+        .team-member p.bio {
+            color: var(--oxford-blue);
+            opacity: 0.8;
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .team-social {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+        }
+        
+        .team-social a {
+            color: var(--oxford-blue);
+            font-size: 1.2rem;
+        }
+        
+        .team-social a:hover {
+            color: var(--mustard-gold);
+        }
+        
+        @media (max-width: 768px) {
+            .about-section, .about-section.reverse {
+                flex-direction: column;
+            }
+            
+            .about-image {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="about-page">
+        <div class="about-header">
+            <h1>About ibscienceclassroom</h1>
+            <p>Empowering IB educators with high-quality, curriculum-aligned resources to enhance teaching and student learning outcomes.</p>
+        </div>
+        
+        <div class="about-section">
+            <div class="about-content">
+                <h2>Mission Statement</h2>
+                <p>This curriculum extends beyond the classroom and is aligned with IB science assessment objectives, modern literacy, Approaches to Learning (ATL) skills, and scientific knowledge. It promotes interdisciplinary learning, enabling students to transfer their understanding and apply knowledge in real-life situations. As a result, it empowers students to become lifelong learners and global citizens who take action to address real-world problems.</p>
+            </div>
+            <div class="about-image">
+                <img src="./public/images/about-mission.jpg" alt="Our Mission">
+            </div>
+        </div>
+
+        <div class="team-section">
+            <h2>Meet the mind behind the Mission</h2>
+            <div class="team-grid">
+                <div class="team-member">
+                    <div class="team-member-image">
+                        <img src="./public/images/team-1.jpg" alt="Mrs. Paschalina Grant, M.Phil., M.Ed">
+                    </div>
+                    <h3> Mrs. Paschalina Grant, M.Phil., PGCEi M.Ed</h3>
+                    <div class="team-social">
+                        <a href="https://www.linkedin.com/in/paschalina-ampofo-grant-689aa2270/"><i class="fab fa-linkedin fa-lg"></i></a>
+                        <a href="https://www.teacherspayteachers.com/store/ibscienceclassroom-com"><i class="fas fa-book-open fa-lg"></i></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="about-section">
+            <div class="about-content">
+                <h2>Experience</h2>
+                <p>Hello, I am Mrs. Paschalina Grant, M.Phil., M.Ed. (Candidate, Curriculum and Instruction), PGCEi, and an IB Certified Educator in both DP Biology and MYP Science. I am a curriculum specialist and international educator with over a decade of experience, specialising in the International Baccalaureate Middle Years Programme Sciences, Diploma Programme Biology, and the Cambridge IGCSE and A Level Biology curriculum.
+</p>
+                <p>I hold an M.Phil. and am currently pursuing an M.Ed. in Curriculum and Instruction with a concentration in IBDP at Southeastern Louisiana University, USA. I completed my academic training at the University of Nottingham, UK (PGCEi), and earned certifications in MYP and DP Teaching and Learning from the University of Windsor, Canada.</p>
+                <p>I am passionate about teaching that transfers beyond the classroom—instruction that nurtures lifelong learners, cultivates creative and critical thinking, and fosters innovation. My goal is to equip students with modern literacy skills and the mindset needed to succeed in a rapidly changing world and to become globally minded citizens who lead with curiosity, creativity, and purpose.</p>
+            </div>
+        </div>
+        
+        <div class="about-section reverse">
+            <div class="about-content">
+                <h2>Teaching style</h2>
+                <p>My teaching philosophy is grounded in the belief that students construct their own understanding through inquiry, enabling them to become confident, independent, and lifelong learners. I teach through concepts, which allows students to make interdisciplinary connections and see the bigger picture. Each resource is carefully designed to:</p>
+                <ul style="color: var(--oxford-blue); opacity: 0.8; margin-bottom: 1.5rem; line-height: 1.6;">
+                    <li>Align perfectly with IB standards and assessment criteria</li>
+                    <li>Promote inquiry-based learning and critical thinking</li>
+                    <li>Save teachers hours of preparation time</li>
+                    <li>Engage students with interactive, visually appealing materials</li>
+                </ul>
+                <p>I believe that learning happens through doing. My classroom is an active space where students learn best by engaging hands-on, exploring ideas, and experiencing science in action. This approach fosters critical thinking and encourages international mindedness, both essential elements of the IB framework. From complete unit bundles to individual lesson plans, I share resources designed to inspire inquiry-based learning, support conceptual understanding, and empower both teachers and students.</p>
+            </div>
+            <div class="about-image">
+                <img src="./public/images/about-resources.jpg" alt="Our Resources">
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../components/header.js"></script>
+    <script src="../components/footer.js"></script>
+</body>
+</html>

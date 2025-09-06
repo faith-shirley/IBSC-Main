@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources - IB Science Classroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/resources.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="resources-page">
+        <div class="resources-header">
+            <h1>IB Science Resources</h1>
+            <p>Browse our collection of high-quality, curriculum-aligned resources</p>
+        </div>
+
+        <div class="resources-container">
+            <aside class="filter-sidebar" id="filter-sidebar">
+                <!-- Filter sidebar component will be injected here -->
+            </aside>
+
+            <section class="resources-main">
+                <div class="resources-toolbar">
+                    <div class="search-box">
+                        <input type="text" placeholder="Search resources..." id="resource-search">
+                        <button><i class="fas fa-search"></i></button>
+                    </div>
+                    <div class="sort-options">
+                        <label for="sort-by">Sort by:</label>
+                        <select id="sort-by">
+                            <option value="popular">Most Popular</option>
+                            <option value="newest">Newest</option>
+                            <option value="price-asc">Price: Low to High</option>
+                            <option value="price-desc">Price: High to Low</option>
+                            <option value="rating">Highest Rated</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="resources-grid" id="resources-grid">
+                    <!-- Resources will be loaded via JavaScript -->
+                </div>
+
+                <div class="pagination">
+                    <button class="btn-pagination" id="prev-page" disabled>
+                        <i class="fas fa-chevron-left"></i> Previous
+                    </button>
+                    <span id="page-info">Page 1 of 5</span>
+                    <button class="btn-pagination" id="next-page">
+                        Next <i class="fas fa-chevron-right"></i>
+                    </button>
+                </div>
+            </section>
+        </div>
+    </div>
+
+    <div id="footer-container"></div>
+
+    <div id="preview-modal" class="modal">
+        <!-- Preview modal content will be loaded here -->
+    </div>
+
+    <div id="login-modal" class="modal">
+        <!-- Login modal will be injected here -->
+    </div>
+
+    <script src="./assets/js/main.js"></script>
+    <script src="./assets/js/resources.js"></script>
+    <script src="./components/header.js"></script>
+    <script src="./components/footer.js"></script>
+    <script src="./components/filter-sidebar.js"></script>
+    <script src="./components/preview-modal.js"></script>
+    <script src="./components/login-modal.js"></script>
+</body>
+</html>

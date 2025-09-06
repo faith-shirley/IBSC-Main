@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Order Successful - IB Science Classroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <style>
+        .success-page {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: calc(100vh - 200px);
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .success-card {
+            background-color: var(--snow-white);
+            border-radius: 8px;
+            padding: 3rem;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+            max-width: 600px;
+            width: 100%;
+        }
+        
+        .success-icon {
+            font-size: 4rem;
+            color: #4BB543;
+            margin-bottom: 1.5rem;
+        }
+        
+        .success-card h1 {
+            color: var(--oxford-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .success-card p {
+            color: var(--oxford-blue);
+            opacity: 0.8;
+            margin-bottom: 2rem;
+            font-size: 1.1rem;
+        }
+        
+        .order-details {
+            background-color: var(--slate-gray);
+            border-radius: 8px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            text-align: left;
+        }
+        
+        .order-details h3 {
+            margin-top: 0;
+            color: var(--oxford-blue);
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.5rem;
+        }
+        
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            margin-top: 1rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(20, 33, 61, 0.1);
+        }
+        
+        .success-actions {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+        }
+        
+        @media (max-width: 480px) {
+            .success-actions {
+                flex-direction: column;
+            }
+            
+            .success-actions a {
+                width: 100%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="success-page">
+        <div class="success-card">
+            <div class="success-icon">
+                <i class="fas fa-check-circle"></i>
+            </div>
+            <h1>Thank You for Your Purchase!</h1>
+            <p>Your order has been successfully processed. You can now access your resources in your dashboard.</p>
+            
+            <div class="order-details">
+                <h3>Order Details</h3>
+                <div class="order-item">
+                    <span>Order Number:</span>
+                    <span>#IBSC-2023-0567</span>
+                </div>
+                <div class="order-item">
+                    <span>Date:</span>
+                    <span>${new Date().toLocaleDateString()}</span>
+                </div>
+                <div class="order-item">
+                    <span>Payment Method:</span>
+                    <span>PayPal</span>
+                </div>
+                <div class="order-item">
+                    <span>IB Biology Topic 1 Complete Bundle</span>
+                    <span>$24.99</span>
+                </div>
+                <div class="order-item">
+                    <span>Chemistry IA Guide & Examples</span>
+                    <span>$14.99</span>
+                </div>
+                <div class="order-total">
+                    <span>Total:</span>
+                    <span>$39.98</span>
+                </div>
+            </div>
+            
+            <div class="success-actions">
+                <a href="../pages/dashboard.html" class="btn-primary">
+                    <i class="fas fa-tachometer-alt"></i> Go to Dashboard
+                </a>
+                <a href="../pages/resources.html" class="btn-secondary">
+                    <i class="fas fa-book"></i> Browse More Resources
+                </a>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../components/header.js"></script>
+    <script src="../components/footer.js"></script>
+</body>
+</html>

@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Educator Dashboard - IB Science Classroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/dashboard.css">
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="dashboard-container">
+        <aside class="dashboard-sidebar">
+            <div class="user-profile">
+                <div class="user-avatar">
+                    <img src="../public/images/user-avatar.jpg" alt="User Avatar">
+                </div>
+                <div class="user-info">
+                    <h3>Mrs. Paschalina Grant, M.Phil., M.Ed</h3>
+                    <p>IB Biology Teacher</p>
+                    <p class="user-email">sarah.johnson@example.com</p>
+                </div>
+            </div>
+
+            <nav class="dashboard-nav">
+                <ul>
+                    <li>
+                        <a href="#" class="active" data-section="overview">
+                            <i class="fas fa-tachometer-alt"></i> Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="resources">
+                            <i class="fas fa-book"></i> My Resources
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="purchases">
+                            <i class="fas fa-shopping-bag"></i> Purchases
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="subscriptions">
+                            <i class="fas fa-calendar-alt"></i> Subscriptions
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="wishlist">
+                            <i class="fas fa-heart"></i> Wishlist
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="reviews">
+                            <i class="fas fa-star"></i> My Reviews
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" data-section="settings">
+                            <i class="fas fa-cog"></i> Settings
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" id="logout-btn">
+                            <i class="fas fa-sign-out-alt"></i> Logout
+                        </a>
+                    </li>
+                </ul>
+            </nav>
+        </aside>
+
+        <section class="dashboard-content">
+            <!-- Overview Section -->
+            <div class="dashboard-section active" id="overview-section">
+                <div class="dashboard-header">
+                    <h2>Educator Dashboard</h2>
+                    <p>Welcome back! Here's what's happening with your account.</p>
+                </div>
+
+                <div class="stats-grid">
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-book-open"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Resources</h3>
+                            <p class="stat-value">24</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 5 new this month
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-download"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Downloads</h3>
+                            <p class="stat-value">142</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 12% from last month
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-star"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Average Rating</h3>
+                            <p class="stat-value">4.8</p>
+                            <p class="stat-change neutral">
+                                <i class="fas fa-minus"></i> No change
+                            </p>
+                        </div>
+                    </div>
+
+                    <div class="stat-card">
+                        <div class="stat-icon">
+                            <i class="fas fa-users"></i>
+                        </div>
+                        <div class="stat-info">
+                            <h3>Students</h3>
+                            <p class="stat-value">87</p>
+                            <p class="stat-change positive">
+                                <i class="fas fa-arrow-up"></i> 3 new enrollments
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="dashboard-row">
+                    <div class="recent-activity card">
+                        <div class="card-header">
+                            <h3>Recent Activity</h3>
+                            <a href="#" class="view-all">View All</a>
+                        </div>
+                        <ul class="activity-list" id="recent-activity">
+                            <!-- Activity items will be loaded here -->
+                        </ul>
+                    </div>
+
+                    <div class="quick-links card">
+                        <div class="card-header">
+                            <h3>Quick Actions</h3>
+                        </div>
+                        <div class="action-buttons">
+                            <a href="../resources.html" class="action-btn">
+                                <i class="fas fa-search"></i>
+                                <span>Browse Resources</span>
+                            </a>
+                            <a href="#" class="action-btn">
+                                <i class="fas fa-upload"></i>
+                                <span>Upload Resource</span>
+                            </a>
+                            <a href="#" class="action-btn">
+                                <i class="fas fa-share-alt"></i>
+                                <span>Share Feedback</span>
+                            </a>
+                            <a href="#" class="action-btn">
+                                <i class="fas fa-question-circle"></i>
+                                <span>Get Help</span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="resource-highlights card">
+                    <div class="card-header">
+                        <h3>Your Most Used Resources</h3>
+                        <a href="#" class="view-all">View All</a>
+                    </div>
+                    <div class="resources-grid" id="top-resources">
+                        <!-- Top resources will be loaded here -->
+                    </div>
+                </div>
+            </div>
+
+            <!-- Other sections (initially hidden) -->
+            <div class="dashboard-section" id="resources-section">
+                <!-- Resources section content -->
+            </div>
+
+            <div class="dashboard-section" id="purchases-section">
+                <!-- Purchases section content -->
+            </div>
+
+            <!-- Additional sections... -->
+        </section>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../assets/js/dashboard.js"></script>
+    <script src="../components/header.js"></script>
+    <script src="../components/footer.js"></script>
+</body>
+</html>

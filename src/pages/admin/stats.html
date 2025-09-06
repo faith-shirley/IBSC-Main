@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Statistics - IB Science Classroom Admin</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+    <style>
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin-bottom: 2rem;
+        }
+        
+        .stat-card {
+            background-color: var(--snow-white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .stat-card h3 {
+            font-size: 1rem;
+            margin: 0 0 0.5rem 0;
+            color: var(--oxford-blue);
+        }
+        
+        .stat-value {
+            font-size: 2rem;
+            font-weight: bold;
+            margin: 0;
+            color: var(--mustard-gold);
+        }
+        
+        .stat-trend {
+            display: flex;
+            align-items: center;
+            margin-top: 0.5rem;
+            font-size: 0.9rem;
+        }
+        
+        .trend-up {
+            color: #4BB543;
+        }
+        
+        .trend-down {
+            color: #FF3333;
+        }
+        
+        .chart-container {
+            background-color: var(--snow-white);
+            border-radius: 8px;
+            padding: 1.5rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            margin-bottom: 2rem;
+        }
+        
+        .chart-container h2 {
+            margin-top: 0;
+            color: var(--oxford-blue);
+        }
+        
+        .chart-placeholder {
+            height: 300px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background-color: var(--slate-gray);
+            color: var(--oxford-blue);
+            border-radius: 4px;
+        }
+        
+        .stats-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 2rem;
+        }
+        
+        .stats-table th, .stats-table td {
+            padding: 1rem;
+            text-align: left;
+            border-bottom: 1px solid var(--slate-gray);
+        }
+        
+        .stats-table th {
+            background-color: var(--slate-gray);
+            color: var(--oxford-blue);
+            font-family: 'Poppins', sans-serif;
+        }
+        
+        .stats-table tr:hover {
+            background-color: rgba(252, 163, 17, 0.05);
+        }
+        
+        .badge {
+            display: inline-block;
+            padding: 0.25rem 0.5rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .badge-success {
+            background-color: rgba(75, 181, 67, 0.1);
+            color: #4BB543;
+        }
+        
+        .badge-warning {
+            background-color: rgba(252, 163, 17, 0.1);
+            color: var(--mustard-gold);
+        }
+        
+        .badge-danger {
+            background-color: rgba(255, 51, 51, 0.1);
+            color: #FF3333;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header Component will be injected here -->
+    <div id="header-container"></div>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Statistics Dashboard</h1>
+            <div class="date-range">
+                <select id="stats-range" class="form-control">
+                    <option value="7">Last 7 Days</option>
+                    <option value="30" selected>Last 30 Days</option>
+                    <option value="90">Last 90 Days</option>
+                    <option value="365">Last Year</option>
+                    <option value="custom">Custom Range</option>
+                </select>
+            </div>
+        </div>
+        
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="upload.html"><i class="fas fa-upload"></i> Upload Resources</a></li>
+                <li><a href="manage.html"><i class="fas fa-cog"></i> Manage Resources</a></li>
+                <li><a href="stats.html" class="active"><i class="fas fa-chart-bar"></i> Statistics</a></li>
+            </ul>
+        </nav>
+        
+        <div class="stats-grid">
+            <div class="stat-card">
+                <h3>Total Revenue</h3>
+                <p class="stat-value">$3,456.78</p>
+                <div class="stat-trend trend-up">
+                    <i class="fas fa-arrow-up"></i> 12.5% from last period
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>New Purchases</h3>
+                <p class="stat-value">142</p>
+                <div class="stat-trend trend-up">
+                    <i class="fas fa-arrow-up"></i> 8.3% from last period
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>Resource Downloads</h3>
+                <p class="stat-value">856</p>
+                <div class="stat-trend trend-down">
+                    <i class="fas fa-arrow-down"></i> 4.2% from last period
+                </div>
+            </div>
+            
+            <div class="stat-card">
+                <h3>New Users</h3>
+                <p class="stat-value">67</p>
+                <div class="stat-trend trend-up">
+                    <i class="fas fa-arrow-up"></i> 15.8% from last period
+                </div>
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h2>Revenue Overview</h2>
+            <div class="chart-placeholder">
+                Revenue chart would be displayed here
+            </div>
+        </div>
+        
+        <div class="chart-container">
+            <h2>Resource Performance</h2>
+            <div class="chart-placeholder">
+                Resource performance chart would be displayed here
+            </div>
+        </div>
+        
+        <div class="admin-card">
+            <h2>Recent Orders</h2>
+            <table class="stats-table">
+                <thead>
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Date</th>
+                        <th>Amount</th>
+                        <th>Status</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#IBSC-2023-0567</td>
+                        <td>Sarah Johnson</td>
+                        <td>2023-06-15</td>
+                        <td>$24.99</td>
+                        <td><span class="badge badge-success">Completed</span></td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>#IBSC-2023-0566</td>
+                        <td>Michael Chen</td>
+                        <td>2023-06-14</td>
+                        <td>$14.99</td>
+                        <td><span class="badge badge-success">Completed</span></td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>#IBSC-2023-0565</td>
+                        <td>Amina Diallo</td>
+                        <td>2023-06-14</td>
+                        <td>$19.99</td>
+                        <td><span class="badge badge-success">Completed</span></td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>#IBSC-2023-0564</td>
+                        <td>David Wilson</td>
+                        <td>2023-06-13</td>
+                        <td>$199.00</td>
+                        <td><span class="badge badge-warning">Processing</span></td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                    <tr>
+                        <td>#IBSC-2023-0563</td>
+                        <td>Emily Brown</td>
+                        <td>2023-06-12</td>
+                        <td>$39.98</td>
+                        <td><span class="badge badge-danger">Refunded</span></td>
+                        <td><a href="#">View</a></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <!-- Footer Component will be injected here -->
+    <div id="footer-container"></div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../components/header.js"></script>
+    <script src="../../components/footer.js"></script>
+    <script src="../../assets/js/admin.js"></script>
+    
+    <script>
+        // Admin-specific scripts
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('isAdmin');
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+</html>

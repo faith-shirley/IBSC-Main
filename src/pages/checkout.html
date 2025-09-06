@@ -1,0 +1,324 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - IB Science Classroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/main.css">
+    <link rel="stylesheet" href="../assets/css/responsive.css">
+    <style>
+        .checkout-page {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .checkout-container {
+            display: flex;
+            gap: 2rem;
+        }
+        
+        .checkout-form {
+            flex: 1;
+            background-color: var(--snow-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+        }
+        
+        .checkout-summary {
+            flex: 0 0 350px;
+            background-color: var(--snow-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+            height: fit-content;
+        }
+        
+        .checkout-header {
+            margin-bottom: 2rem;
+        }
+        
+        .checkout-header h1 {
+            color: var(--oxford-blue);
+            margin-bottom: 0.5rem;
+        }
+        
+        .checkout-header p {
+            color: var(--oxford-blue);
+            opacity: 0.8;
+        }
+        
+        .form-section {
+            margin-bottom: 2rem;
+        }
+        
+        .form-section h2 {
+            font-size: 1.25rem;
+            color: var(--oxford-blue);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--slate-gray);
+        }
+        
+        .form-row {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group {
+            flex: 1;
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-family: 'Poppins', sans-serif;
+            color: var(--oxford-blue);
+        }
+        
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 0.75rem 1rem;
+            border: 1px solid var(--slate-gray);
+            border-radius: 4px;
+            font-family: 'Open Sans', sans-serif;
+        }
+        
+        .payment-methods {
+            display: flex;
+            gap: 1rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .payment-method {
+            flex: 1;
+            text-align: center;
+            padding: 1rem;
+            border: 1px solid var(--slate-gray);
+            border-radius: 4px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .payment-method:hover, .payment-method.active {
+            border-color: var(--mustard-gold);
+            background-color: rgba(252, 163, 17, 0.05);
+        }
+        
+        .payment-method i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+            color: var(--oxford-blue);
+        }
+        
+        .order-summary h2 {
+            font-size: 1.25rem;
+            color: var(--oxford-blue);
+            margin-bottom: 1rem;
+            padding-bottom: 0.5rem;
+            border-bottom: 1px solid var(--slate-gray);
+        }
+        
+        .order-items {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 1.5rem 0;
+        }
+        
+        .order-item {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 0.75rem;
+        }
+        
+        .order-total {
+            display: flex;
+            justify-content: space-between;
+            font-weight: bold;
+            font-size: 1.1rem;
+            padding-top: 1rem;
+            border-top: 1px solid var(--slate-gray);
+            margin-bottom: 1.5rem;
+        }
+        
+        .checkout-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--mustard-gold);
+            color: var(--oxford-blue);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            font-size: 1.1rem;
+            cursor: pointer;
+        }
+        
+        @media (max-width: 768px) {
+            .checkout-container {
+                flex-direction: column;
+            }
+            
+            .checkout-summary {
+                flex: 1;
+                width: 100%;
+            }
+            
+            .form-row {
+                flex-direction: column;
+                gap: 0;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="checkout-page">
+        <div class="checkout-header">
+            <h1>Checkout</h1>
+            <p>Complete your purchase to access your resources</p>
+        </div>
+        
+        <div class="checkout-container">
+            <div class="checkout-form">
+                <div class="form-section">
+                    <h2>Contact Information</h2>
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="checkout-email" required>
+                    </div>
+                </div>
+                
+                <div class="form-section">
+                    <h2>Payment Method</h2>
+                    <div class="payment-methods">
+                        <div class="payment-method active" data-method="paypal">
+                            <i class="fab fa-paypal"></i>
+                            <p>PayPal</p>
+                        </div>
+                        <div class="payment-method" data-method="card">
+                            <i class="far fa-credit-card"></i>
+                            <p>Credit Card</p>
+                        </div>
+                    </div>
+                    
+                    <div id="paypal-container">
+                        <div id="paypal-button-container"></div>
+                    </div>
+                    
+                    <div id="card-form" style="display: none;">
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input type="text" id="card-number" placeholder="1234 5678 9012 3456">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-name">Name on Card</label>
+                                <input type="text" id="card-name" placeholder="John Doe">
+                            </div>
+                        </div>
+                        <div class="form-row">
+                            <div class="form-group">
+                                <label for="card-expiry">Expiry Date</label>
+                                <input type="text" id="card-expiry" placeholder="MM/YY">
+                            </div>
+                            <div class="form-group">
+                                <label for="card-cvc">CVC</label>
+                                <input type="text" id="card-cvc" placeholder="123">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="checkout-summary">
+                <h2>Order Summary</h2>
+                <ul class="order-items">
+                    <li class="order-item">
+                        <span>IB Biology Topic 1 Complete Bundle</span>
+                        <span>$24.99</span>
+                    </li>
+                    <li class="order-item">
+                        <span>Chemistry IA Guide & Examples</span>
+                        <span>$14.99</span>
+                    </li>
+                </ul>
+                <div class="order-total">
+                    <span>Total</span>
+                    <span>$39.98</span>
+                </div>
+                <button class="checkout-btn" id="place-order-btn">
+                    Complete Purchase
+                </button>
+                <p style="text-align: center; margin-top: 1rem; font-size: 0.8rem;">
+                    By completing your purchase, you agree to our <a href="#">Terms of Service</a>
+                </p>
+            </div>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="../assets/js/main.js"></script>
+    <script src="../components/header.js"></script>
+    <script src="../components/footer.js"></script>
+
+    <script>
+        // Payment method selection
+        document.querySelectorAll('.payment-method').forEach(method => {
+            method.addEventListener('click', () => {
+                document.querySelectorAll('.payment-method').forEach(m => {
+                    m.classList.remove('active');
+                });
+                method.classList.add('active');
+                
+                const paymentMethod = method.getAttribute('data-method');
+                if (paymentMethod === 'paypal') {
+                    document.getElementById('paypal-container').style.display = 'block';
+                    document.getElementById('card-form').style.display = 'none';
+                } else {
+                    document.getElementById('paypal-container').style.display = 'none';
+                    document.getElementById('card-form').style.display = 'block';
+                }
+            });
+        });
+        
+        // PayPal integration
+        function loadPayPalButton() {
+            // In a real app, you would load the PayPal SDK with your client ID
+            console.log('Loading PayPal button...');
+            
+            // This is just a simulation
+            document.getElementById('paypal-button-container').innerHTML = `
+                <div style="padding: 1rem; background-color: #f5f5f5; border-radius: 4px; text-align: center;">
+                    <p>PayPal button would appear here</p>
+                    <button style="background-color: #003087; color: white; border: none; padding: 0.75rem 1.5rem; 
+                            border-radius: 4px; cursor: pointer; margin-top: 1rem;"
+                            onclick="completePurchase()">
+                        Complete with PayPal
+                    </button>
+                </div>
+            `;
+        }
+        
+        // Complete purchase
+        function completePurchase() {
+            // In a real app, this would process the payment
+            alert('Purchase completed successfully! Redirecting...');
+            window.location.href = 'success.html';
+        }
+        
+        // Initialize payment methods
+        document.getElementById('place-order-btn').addEventListener('click', completePurchase);
+        window.addEventListener('DOMContentLoaded', loadPayPalButton);
+    </script>
+</body>
+</html>

@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pricing - IB Science Classroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="./assets/css/main.css">
+    <link rel="stylesheet" href="./assets/css/responsive.css">
+    <style>
+        .pricing-page {
+            padding: 2rem;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .pricing-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+        
+        .pricing-header h1 {
+            font-size: 2.5rem;
+            color: var(--oxford-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-header p {
+            font-size: 1.1rem;
+            color: var(--oxford-blue);
+            opacity: 0.8;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        
+        .pricing-tabs {
+            display: flex;
+            justify-content: center;
+            margin-bottom: 2rem;
+            border-bottom: 1px solid var(--slate-gray);
+        }
+        
+        .pricing-tab {
+            padding: 1rem 2rem;
+            cursor: pointer;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            color: var(--oxford-blue);
+            border-bottom: 3px solid transparent;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-tab.active {
+            border-bottom: 3px solid var(--mustard-gold);
+            color: var(--mustard-gold);
+        }
+        
+        .pricing-plans {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
+        }
+        
+        .pricing-card {
+            background-color: var(--snow-white);
+            border-radius: 8px;
+            padding: 2rem;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .pricing-card.popular {
+            border: 2px solid var(--mustard-gold);
+            position: relative;
+        }
+        
+        .popular-badge {
+            position: absolute;
+            top: -12px;
+            right: 20px;
+            background-color: var(--mustard-gold);
+            color: var(--oxford-blue);
+            padding: 0.25rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+        
+        .pricing-card h2 {
+            color: var(--oxford-blue);
+            margin-top: 0;
+        }
+        
+        .price {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: var(--mustard-gold);
+            margin: 1rem 0;
+        }
+        
+        .price span {
+            font-size: 1rem;
+            font-weight: normal;
+            opacity: 0.8;
+        }
+        
+        .pricing-features {
+            list-style: none;
+            padding: 0;
+            margin: 0 0 2rem 0;
+        }
+        
+        .pricing-features li {
+            padding: 0.5rem 0;
+            border-bottom: 1px solid var(--slate-gray);
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .pricing-features li i {
+            color: var(--mustard-gold);
+        }
+        
+        .pricing-btn {
+            width: 100%;
+            padding: 1rem;
+            background-color: var(--mustard-gold);
+            color: var(--oxford-blue);
+            border: none;
+            border-radius: 4px;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .pricing-btn:hover {
+            background-color: var(--oxford-blue);
+            color: var(--mustard-gold);
+        }
+        
+        .faq-section {
+            margin: 4rem 0;
+        }
+        
+        .faq-section h2 {
+            text-align: center;
+            color: var(--oxford-blue);
+            margin-bottom: 2rem;
+        }
+        
+        .faq-item {
+            margin-bottom: 1rem;
+            border: 1px solid var(--slate-gray);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+        
+        .faq-question {
+            padding: 1rem;
+            background-color: var(--snow-white);
+            color: var(--oxford-blue);
+            font-family: 'Poppins', sans-serif;
+            font-weight: 500;
+            cursor: pointer;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .faq-answer {
+            padding: 0 1rem;
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.3s ease;
+            color: var(--oxford-blue);
+            opacity: 0.8;
+        }
+        
+        .faq-item.active .faq-answer {
+            padding: 1rem;
+            max-height: 500px;
+        }
+        
+        .faq-toggle {
+            transition: transform 0.3s ease;
+        }
+        
+        .faq-item.active .faq-toggle {
+            transform: rotate(180deg);
+        }
+        
+        .pricing-cta {
+            text-align: center;
+            margin: 3rem 0;
+        }
+        
+        .pricing-cta h2 {
+            color: var(--oxford-blue);
+            margin-bottom: 1rem;
+        }
+        
+        .pricing-cta p {
+            color: var(--oxford-blue);
+            opacity: 0.8;
+            max-width: 600px;
+            margin: 0 auto 2rem;
+        }
+        
+        @media (max-width: 768px) {
+            .pricing-tabs {
+                flex-direction: column;
+                border-bottom: none;
+            }
+            
+            .pricing-tab {
+                border-bottom: 1px solid var(--slate-gray);
+                text-align: center;
+            }
+            
+            .pricing-tab.active {
+                border-bottom: 1px solid var(--mustard-gold);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="header-container"></div>
+
+    <main class="pricing-page">
+        <div class="pricing-header">
+            <h1>Pricing Plans</h1>
+            <p>Choose the plan that works best for you. All plans include access to our growing library of high-quality IB Science resources.</p>
+        </div>
+        
+        <div class="pricing-tabs">
+            <div class="pricing-tab active" data-tab="individual">Individual Resources</div>
+            <div class="pricing-tab" data-tab="subscription">Subscription Plans</div>
+            <div class="pricing-tab" data-tab="school">School Plans</div>
+        </div>
+        
+        <div class="pricing-content">
+            <div class="pricing-plans" id="individual-plans">
+                <div class="pricing-card">
+                    <h2>Pay Per Resource</h2>
+                    <div class="price">$5 - $50</div>
+                    <p>Purchase only what you need, when you need it.</p>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> One-time purchase</li>
+                        <li><i class="fas fa-check"></i> Lifetime access to purchased resources</li>
+                        <li><i class="fas fa-check"></i> Free updates to purchased resources</li>
+                        <li><i class="fas fa-check"></i> Preview available before purchase</li>
+                    </ul>
+                    
+                    <button class="pricing-btn">Browse Resources</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h2>Bundle Discount</h2>
+                    <div class="price">Save up to 30%</div>
+                    <p>Save when you purchase multiple resources together.</p>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Discounted bundle pricing</li>
+                        <li><i class="fas fa-check"></i> Complete unit plans</li>
+                        <li><i class="fas fa-check"></i> Thematic resource collections</li>
+                        <li><i class="fas fa-check"></i> Custom bundle requests</li>
+                    </ul>
+                    
+                    <button class="pricing-btn">View Bundles</button>
+                </div>
+            </div>
+            
+            <div class="pricing-plans" id="subscription-plans" style="display: none;">
+                <div class="pricing-card">
+                    <h2>Monthly Access</h2>
+                    <div class="price">$19.99<span>/month</span></div>
+                    <p>Perfect for short-term needs or trying out our resources.</p>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Access to all resources</li>
+                        <li><i class="fas fa-check"></i> Cancel anytime</li>
+                        <li><i class="fas fa-check"></i> Download up to 10 resources/month</li>
+                        <li><i class="fas fa-check"></i> New resources added weekly</li>
+                    </ul>
+                    
+                    <button class="pricing-btn">Start Monthly Plan</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Best Value</div>
+                    <h2>Annual Access</h2>
+                    <div class="price">$199<span>/year</span></div>
+                    <p>Save over 15% with annual billing.</p>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Access to all resources</li>
+                        <li><i class="fas fa-check"></i> Unlimited downloads</li>
+                        <li><i class="fas fa-check"></i> Priority support</li>
+                        <li><i class="fas fa-check"></i> Exclusive annual member resources</li>
+                    </ul>
+                    
+                    <button class="pricing-btn">Start Annual Plan</button>
+                </div>
+            </div>
+            
+            <div class="pricing-plans" id="school-plans" style="display: none;">
+                <div class="pricing-card">
+                    <h2>Department Plan</h2>
+                    <div class="price">Custom Pricing</div>
+                    <p>For science departments with 5-20 teachers.</p>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Shared access for your department</li>
+                        <li><i class="fas fa-check"></i> Customized resource recommendations</li>
+                        <li><i class="fas fa-check"></i> Professional development support</li>
+                        <li><i class="fas fa-check"></i> Volume discounts</li>
+                    </ul>
+                    
+                    <button class="pricing-btn">Request a Quote</button>
+                </div>
+                
+                <div class="pricing-card popular">
+                    <div class="popular-badge">Most Popular</div>
+                    <h2>School-Wide Plan</h2>
+                    <div class="price">Custom Pricing</div>
+                    <p>For entire schools with unlimited teachers.</p>
+                    
+                    <ul class="pricing-features">
+                        <li><i class="fas fa-check"></i> Unlimited access for all teachers</li>
+                        <li><i class="fas fa-check"></i> Dedicated account manager</li>
+                        <li><i class="fas fa-check"></i> Custom resource development</li>
+                        <li><i class="fas fa-check"></i> School-wide analytics</li>
+                    </ul>
+                    
+                    <button class="pricing-btn">Request a Quote</button>
+                </div>
+            </div>
+        </div>
+        
+        <div class="faq-section">
+            <h2>Frequently Asked Questions</h2>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>What payment methods do you accept?</span>
+                    <i class="fas fa-chevron-down faq-toggle"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We accept all major credit cards (Visa, Mastercard, American Express), PayPal, and for school plans, we can also accept purchase orders and bank transfers.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I cancel my subscription anytime?</span>
+                    <i class="fas fa-chevron-down faq-toggle"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, you can cancel your monthly or annual subscription at any time. For annual subscriptions, we offer a prorated refund for unused months if canceled within the first 30 days.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Do you offer discounts for IB schools in developing countries?</span>
+                    <i class="fas fa-chevron-down faq-toggle"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Yes, we offer special pricing for schools in developing countries. Please contact us with your school details, and we'll provide customized pricing options.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>Can I share resources with colleagues?</span>
+                    <i class="fas fa-chevron-down faq-toggle"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>Individual and subscription plans are for single-teacher use only. For sharing with colleagues, please consider our department or school-wide plans which are designed for multiple users.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question">
+                    <span>How often are new resources added?</span>
+                    <i class="fas fa-chevron-down faq-toggle"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>We add new resources weekly, with major updates aligned with the IB academic calendar. Subscribers receive notifications when new resources matching their subjects are added.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="pricing-cta">
+            <h2>Not sure which plan is right for you?</h2>
+            <p>Our team is happy to help you choose the best option for your teaching needs and budget.</p>
+            <button class="btn-primary">Contact Our Team</button>
+        </div>
+    </main>
+
+    <div id="footer-container"></div>
+
+    <script src="./assets/js/main.js"></script>
+    <script src="./components/header.js"></script>
+    <script src="./components/footer.js"></script>
+    
+    <script>
+        // Pricing tabs
+        document.querySelectorAll('.pricing-tab').forEach(tab => {
+            tab.addEventListener('click', () => {
+                // Update active tab
+                document.querySelectorAll('.pricing-tab').forEach(t => {
+                    t.classList.remove('active');
+                });
+                tab.classList.add('active');
+                
+                // Show corresponding plans
+                const tabId = tab.getAttribute('data-tab');
+                document.querySelectorAll('.pricing-plans').forEach(plans => {
+                    plans.style.display = 'none';
+                });
+                document.getElementById(tabId + '-plans').style.display = 'grid';
+            });
+        });
+        
+        // FAQ accordion
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const item = question.parentElement;
+                item.classList.toggle('active');
+                
+                // Close other items
+                document.querySelectorAll('.faq-item').forEach(faqItem => {
+                    if (faqItem !== item) {
+                        faqItem.classList.remove('active');
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>

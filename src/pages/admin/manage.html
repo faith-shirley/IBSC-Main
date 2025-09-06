@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Resources - IB Science Classroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body>
+    <!-- Header Component will be injected here -->
+    <div id="header-container"></div>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Manage Resources</h1>
+            <button id="logout-btn" class="btn-admin">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+        
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="index.html"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="upload.html"><i class="fas fa-upload"></i> Upload Resources</a></li>
+                <li><a href="manage.html" class="active"><i class="fas fa-cog"></i> Manage Resources</a></li>
+            </ul>
+        </nav>
+        
+        <div class="admin-card">
+            <div class="search-filter">
+                <div class="form-group">
+                    <input type="text" id="resource-search" class="form-control" placeholder="Search resources...">
+                </div>
+                <div class="filter-options">
+                    <select id="filter-type" class="form-control">
+                        <option value="">All Types</option>
+                        <option value="lesson-plan">Lesson Plan</option>
+                        <option value="worksheet">Worksheet</option>
+                        <option value="presentation">Presentation</option>
+                        <option value="assessment">Assessment</option>
+                        <option value="bundle">Bundle</option>
+                        <option value="guide">Guide</option>
+                        <option value="unit">Unit</option>
+                    </select>
+                    
+                    <select id="filter-subject" class="form-control">
+                        <option value="">All Subjects</option>
+                        <option value="biology">Biology</option>
+                        <option value="chemistry">Chemistry</option>
+                        <option value="physics">Physics</option>
+                        <option value="environmental-systems">Environmental Systems</option>
+                        <option value="sports-exercise-health">Sports, Exercise & Health</option>
+                    </select>
+                    
+                    <button id="apply-filters" class="btn-admin">Apply Filters</button>
+                    <button id="reset-filters" class="btn-admin btn-secondary">Reset</button>
+                </div>
+            </div>
+            
+            <div class="resource-actions-bar">
+                <div class="results-count">
+                    Showing <span id="results-count">24</span> resources
+                </div>
+                <div class="bulk-actions">
+                    <select id="bulk-action" class="form-control">
+                        <option value="">Bulk Actions</option>
+                        <option value="delete">Delete</option>
+                        <option value="change-price">Change Price</option>
+                        <option value="change-category">Change Category</option>
+                    </select>
+                    <button id="apply-bulk-action" class="btn-admin">Apply</button>
+                </div>
+            </div>
+            
+            <ul class="resource-list" id="resource-list">
+                <!-- Resources will be loaded here via JavaScript -->
+            </ul>
+            
+            <div class="pagination">
+                <button class="btn-admin" disabled><i class="fas fa-chevron-left"></i> Previous</button>
+                <span>Page 1 of 5</span>
+                <button class="btn-admin">Next <i class="fas fa-chevron-right"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer Component will be injected here -->
+    <div id="footer-container"></div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../components/header.js"></script>
+    <script src="../../components/footer.js"></script>
+    <script src="../../assets/js/admin.js"></script>
+    
+    <script>
+        // Admin-specific scripts
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('isAdmin');
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+</html>

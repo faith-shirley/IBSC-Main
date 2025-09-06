@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Panel - IB Science Classroom</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700&family=Montserrat:wght@700&family=Open+Sans&family=Poppins&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/css/main.css">
+    <link rel="stylesheet" href="../../assets/css/admin.css">
+</head>
+<body>
+    <!-- Header Component will be injected here -->
+    <div id="header-container"></div>
+
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>Admin Portal</h1>
+            <button id="logout-btn" class="btn-admin">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </button>
+        </div>
+        
+        <nav class="admin-nav">
+            <ul>
+                <li><a href="./index.html" class="active"><i class="fas fa-tachometer-alt"></i> Dashboard</a></li>
+                <li><a href="./upload.html"><i class="fas fa-upload"></i> Upload Resources</a></li>
+                <li><a href="./manage.html"><i class="fas fa-cog"></i> Manage Resources</a></li>
+            </ul>
+        </nav>
+        
+        <div class="admin-card">
+            <h2>Resource Overview</h2>
+            <div class="stats-grid">
+                <div class="stat-card">
+                    <h3>Total Resources</h3>
+                    <p class="stat-value">24</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Downloads</h3>
+                    <p class="stat-value">1,842</p>
+                </div>
+                <div class="stat-card">
+                    <h3>Total Revenue</h3>
+                    <p class="stat-value">$3,456.78</p>
+                </div>
+                <div class="stat-card">
+                    <h3>New This Month</h3>
+                    <p class="stat-value">5</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="admin-card">
+            <h2>Recent Activity</h2>
+            <ul class="activity-list">
+                <li>
+                    <i class="fas fa-download activity-icon"></i>
+                    <div class="activity-details">
+                        <p>IB Biology Topic 2 Bundle downloaded 12 times</p>
+                        <small>2 hours ago</small>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-shopping-cart activity-icon"></i>
+                    <div class="activity-details">
+                        <p>New purchase: Chemistry IA Guide by Sarah M.</p>
+                        <small>5 hours ago</small>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-user activity-icon"></i>
+                    <div class="activity-details">
+                        <p>New user registered: David Johnson</p>
+                        <small>1 day ago</small>
+                    </div>
+                </li>
+                <li>
+                    <i class="fas fa-comment activity-icon"></i>
+                    <div class="activity-details">
+                        <p>New review on Physics Option C: "Excellent resource!"</p>
+                        <small>2 days ago</small>
+                    </div>
+                </li>
+            </ul>
+        </div>
+    </div>
+
+    <!-- Footer Component will be injected here -->
+    <div id="footer-container"></div>
+
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../components/header.js"></script>
+    <script src="../../components/footer.js"></script>
+    <script src="../../assets/js/admin.js"></script>
+    
+    <script>
+        // Admin-specific scripts
+        document.getElementById('logout-btn').addEventListener('click', () => {
+            localStorage.removeItem('isAdmin');
+            window.location.href = '../index.html';
+        });
+    </script>
+</body>
+</html>
